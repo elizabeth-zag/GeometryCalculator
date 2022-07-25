@@ -1,16 +1,16 @@
--- Создание и вставка тестовых данных
+п»ї-- РЎРѕР·РґР°РЅРёРµ Рё РІСЃС‚Р°РІРєР° С‚РµСЃС‚РѕРІС‹С… РґР°РЅРЅС‹С…
 CREATE TABLE Products (Id int IDENTITY(1,1), Name nvarchar(50), PRIMARY KEY(Id));
-CREATE TABLE Categories (Id int IDENTITY(1,1), Name varchar(50), PRIMARY KEY(Id));
+CREATE TABLE Categories (Id int IDENTITY(1,1), Name nvarchar(50), PRIMARY KEY(Id));
 CREATE TABLE ProductCategories (ProductId int, CategoryId int, 
 PRIMARY KEY(ProductId, CategoryId), FOREIGN KEY(ProductId) REFERENCES Products(Id), FOREIGN KEY(CategoryId) REFERENCES Categories(Id));
 
-INSERT INTO Products (Name) VALUES ('Бумага'), ('Портфель'), ('Плюшевый мишка'), ('Дневник'), ('Пенал-игрушка'), ('Бумажный журавлик'), ('Айфон');
-INSERT INTO Categories (Name) VALUES ('Канцелярия'), ('Для школы'), ('Игрушки');
+INSERT INTO Products (Name) VALUES ('Р‘СѓРјР°РіР°'), ('РџРѕСЂС‚С„РµР»СЊ'), ('РџР»СЋС€РµРІС‹Р№ РјРёС€РєР°'), ('Р”РЅРµРІРЅРёРє'), ('РџРµРЅР°Р»-РёРіСЂСѓС€РєР°'), ('Р‘СѓРјР°Р¶РЅС‹Р№ Р¶СѓСЂР°РІР»РёРє'), ('РђР№С„РѕРЅ');
+INSERT INTO Categories (Name) VALUES ('РљР°РЅС†РµР»СЏСЂРёСЏ'), ('Р”Р»СЏ С€РєРѕР»С‹'), ('РРіСЂСѓС€РєРё');
 INSERT INTO ProductCategories (ProductId, CategoryId) VALUES (1,1), (2,2), (3,3), (4,1), (4,2), (5,2), (5,3), (6,1), (6,3);
 
 -----------------------------------------
 
--- Сам запрос
+-- РЎР°Рј Р·Р°РїСЂРѕСЃ
 SELECT p.Name AS ProductName, c.Name AS CategoryName 
 FROM Products p
 LEFT JOIN ProductCategories pc ON p.Id = pc.ProductId
